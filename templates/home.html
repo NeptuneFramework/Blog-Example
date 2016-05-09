@@ -12,7 +12,11 @@
                 type: 'POST',
                 url: '/new',
                 data: JSON.stringify ({'title': title, 'content': content}),
-                success: function(data) { alert('Post Successful'); },
+                success: function(data) {
+                    alert('Post Successful');
+                    $("#title").val("");
+                    $("#content").val("");
+                },
                 contentType: "application/json",
                 dataType: 'json'
             });
