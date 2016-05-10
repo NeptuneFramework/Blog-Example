@@ -1,0 +1,53 @@
+<head>
+    <title>My Blog</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#btn").click(function() {
+            var title = $("#title").val();
+            var content = $("#content").val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/new',
+                data: JSON.stringify ({'title': title, 'content': content}),
+                success: function(data) {
+                    alert('Post Successful');
+                    $("#title").val("");
+                    $("#content").val("");
+                },
+                contentType: "application/json",
+                dataType: 'json'
+            });
+        });
+    });
+</script>
+<style>
+#btn {
+    cursor: pointer;
+    border: solid;
+    text-align: center;
+    margin-right: 50%;
+    border-radius: 6px;
+}
+
+h1 {
+    text-align: center;
+    color: orange;
+}
+
+#cont {
+    margin-left: 40px;
+}
+</style>
+<h1>Add a post</h1>
+<div id="cont">
+    <input type="text" id="title" placeholder="Title">
+    <br><br>
+    <textarea id="content" rows="22" cols="100" placeholder="Your Story..."></textarea>
+    <br>
+    <div id="btn" class="btn btn-lg btn-warning">Post</div>
+</div>
+<h5><a href="/archive">Archive</a></h5>

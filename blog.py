@@ -42,7 +42,7 @@ def get_post(pid):
 
 class Home(object):
     def get(self):
-        return HTMLResponse("home.html")
+        return HTMLResponse("home.html", {'posts': get_all_posts()})
 
 class Archive(object):
     def get(self):
@@ -57,6 +57,11 @@ class NewPost(object):
                              "message": "New Post Successfully Added"})
 
 
+class NewPostPage(object):
+    def get(self):
+        return HTMLResponse("new.html")
+
+
 class GetPost(object):
     def get(self):
         pid = self.request.params['id']
@@ -66,6 +71,7 @@ app = NServer(port=5000)
 app.router.add_rule('/', Home)
 app.router.add_rule('/archive', Archive)
 app.router.add_rule('/new', NewPost)
+app.router.add_rule('/newpost', NewPostPage)
 app.router.add_rule('/post', GetPost)
 
 
