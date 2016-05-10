@@ -10,9 +10,17 @@ h3 {
 h1 {
     text-align: center;
 }
+footer {
+		bottom: 0px;
+		text-align: center;
+		position: fixed;
+		margin-left: 45%; 
+	}
 </style>
 
 <h1 class="bg-primary">{{ post.title  }}</h1>
 <h3>{{ post.content }}</h3>
-<br><br>
-<h5><a href="/archive">Archive</a></h5>
+<footer>
+	<a href="/">Go to Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/archive">Archive</a>
+</footer>

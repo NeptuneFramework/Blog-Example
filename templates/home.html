@@ -14,18 +14,31 @@ body {
     background: url(http://eulercoder.me/img/home-bg.jpg) no-repeat;
     background-size: 100% 50%;
 }
+footer {
+        bottom: 0px;
+        text-align: center;
+        position: fixed;
+        margin-left: 45%; 
+    }
 
 #posts {
     margin-left: 50px;
-    margin-top: 250px;
+    margin-top: 200px;
+}
+#newButton{
+    margin-left: 40%;
 }
 </style>
 <h1>Welcome to my Blog</h1>
 <div id="posts">
-    <div class="btn btn-info btn-lg"><a href="/newpost">New</a></div>
+    <div class="btn btn-info btn-lg" id="newButton"><a href="/newpost">Create New Post</a></div>
     <ul>
         {% for post in posts %}
             <li><h3><a href="{{ post.url }}">{{ post.title }}</a></h3></li>
         {% endfor %}
     </ul>
 </div>
+<footer>
+    <a href="/">Go to Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/archive">Archive</a>
+</footer>
